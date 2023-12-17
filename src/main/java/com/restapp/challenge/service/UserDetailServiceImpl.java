@@ -34,6 +34,7 @@ public class UserDetailServiceImpl implements UserDetailService {
     final UserDetail user = userRepository.findById(id).orElseThrow(
         () -> new ApiException404(String.format("user with id: %s was not found", id),
             ErrorCause.ENTITY_NOT_FOUND));
+
     return modelMapper.map(user, UserDetailDTO.class);
   }
 
